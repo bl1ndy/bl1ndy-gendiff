@@ -9,17 +9,19 @@ use function Functional\sort;
 /**
  * @param string $type
  * @param string $key
- * @param array  $values
+ * @param mixed  $oldValue
+ * @param mixed  $newValue
  * @param array  $children
  *
  * @return array
  */
-function getNode($type, $key, $values, $children = [])
+function getNode($type, $key, $oldValue, $newValue, $children = [])
 {
     return [
         'type' => $type,
         'key' => $key,
-        'values' => $values,
+        'oldValue' => $oldValue,
+        'newValue' => $newValue,
         'children' => $children
     ];
 }
@@ -37,18 +39,18 @@ function getDiff(object $object1, object $object2): array
         array_map(
             function ($key) use ($object1, $object2): array {
                 if (!property_exists($object1, $key)) {
-                    return getNode('added', $key, ['new' => $object2->{$key}]);
+                    return getNode('added', $key, null, $object2->{$key});
                 }
                 if (!property_exists($object2, $key)) {
-                    return getNode('removed', $key, ['old' => $object1->{$key}]);
+                    return getNode('removed', $key, $object1->{$key}, null);
                 }
                 if ($object1->{$key} === $object2->{$key}) {
-                    return getNode('unchanged', $key, ['old' => $object1->{$key}, 'new' => $object2->{$key}]);
+                    return getNode('unchanged', $key, $object1->{$key}, $object2->{$key});
                 }
                 if (is_object($object1->{$key}) && is_object($object2->{$key})) {
-                    return getNode('complex', $key, [], getDiff($object1->{$key}, $object2->{$key}));
+                    return getNode('complex', $key, null, null, getDiff($object1->{$key}, $object2->{$key}));
                 }
-                return getNode('changed', $key, ['old' => $object1->{$key}, 'new' => $object2->{$key}]);
+                return getNode('changed', $key, $object1->{$key}, $object2->{$key});
             },
             $keys
         )
