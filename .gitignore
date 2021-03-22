@@ -1,2 +1,7 @@
 /vendor/
 phpcs.xml
+build
+logs
+*.swo
+*.swp
+*.cache
