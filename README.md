@@ -12,5 +12,4 @@ Diff can be presented in 3 formats:
 - Plain
 - Json
 
-# Installation
 # Usage
