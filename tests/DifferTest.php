@@ -112,167 +112,150 @@ class DifferTest extends TestCase
         $expected = <<<DOC
         [
             {
-                "type": "complex",
                 "key": "common",
-                "values": [],
+                "type": "complex",
+                "oldValue": null,
+                "newValue": null,
                 "children": [
                     {
-                        "type": "added",
                         "key": "follow",
-                        "values": {
-                            "new": false
-                        },
-                        "children": []
+                        "type": "added",
+                        "oldValue": null,
+                        "newValue": false,
+                        "children": null
                     },
                     {
-                        "type": "unchanged",
                         "key": "setting1",
-                        "values": {
-                            "old": "Value 1",
-                            "new": "Value 1"
-                        },
-                        "children": []
+                        "type": "unchanged",
+                        "oldValue": "Value 1",
+                        "newValue": "Value 1",
+                        "children": null
                     },
                     {
-                        "type": "removed",
                         "key": "setting2",
-                        "values": {
-                            "old": 200
-                        },
-                        "children": []
+                        "type": "removed",
+                        "oldValue": 200,
+                        "newValue": null,
+                        "children": null
                     },
                     {
-                        "type": "changed",
                         "key": "setting3",
-                        "values": {
-                            "old": true,
-                            "new": null
-                        },
-                        "children": []
+                        "type": "updated",
+                        "oldValue": true,
+                        "newValue": null,
+                        "children": null
                     },
                     {
-                        "type": "added",
                         "key": "setting4",
-                        "values": {
-                            "new": "blah blah"
-                        },
-                        "children": []
-                    },
-                    {
                         "type": "added",
-                        "key": "setting5",
-                        "values": {
-                            "new": {
-                                "key5": "value5"
-                            }
-                        },
-                        "children": []
+                        "oldValue": null,
+                        "newValue": "blah blah",
+                        "children": null
                     },
                     {
-                        "type": "complex",
+                        "key": "setting5",
+                        "type": "added",
+                        "oldValue": null,
+                        "newValue": {
+                            "key5": "value5"
+                        },
+                        "children": null
+                    },
+                    {
                         "key": "setting6",
-                        "values": [],
+                        "type": "complex",
+                        "oldValue": null,
+                        "newValue": null,
                         "children": [
                             {
-                                "type": "complex",
                                 "key": "doge",
-                                "values": [],
+                                "type": "complex",
+                                "oldValue": null,
+                                "newValue": null,
                                 "children": [
                                     {
-                                        "type": "changed",
                                         "key": "wow",
-                                        "values": {
-                                            "old": "",
-                                            "new": "so much"
-                                        },
-                                        "children": []
+                                        "type": "updated",
+                                        "oldValue": "",
+                                        "newValue": "so much",
+                                        "children": null
                                     }
                                 ]
                             },
                             {
-                                "type": "unchanged",
                                 "key": "key",
-                                "values": {
-                                    "old": "value",
-                                    "new": "value"
-                                },
-                                "children": []
+                                "type": "unchanged",
+                                "oldValue": "value",
+                                "newValue": "value",
+                                "children": null
                             },
                             {
-                                "type": "added",
                                 "key": "ops",
-                                "values": {
-                                    "new": "vops"
-                                },
-                                "children": []
+                                "type": "added",
+                                "oldValue": null,
+                                "newValue": "vops",
+                                "children": null
                             }
                         ]
                     }
                 ]
             },
             {
-                "type": "complex",
                 "key": "group1",
-                "values": [],
+                "type": "complex",
+                "oldValue": null,
+                "newValue": null,
                 "children": [
                     {
-                        "type": "changed",
                         "key": "baz",
-                        "values": {
-                            "old": "bas",
-                            "new": "bars"
-                        },
-                        "children": []
+                        "type": "updated",
+                        "oldValue": "bas",
+                        "newValue": "bars",
+                        "children": null
                     },
                     {
-                        "type": "unchanged",
                         "key": "foo",
-                        "values": {
-                            "old": "bar",
-                            "new": "bar"
-                        },
-                        "children": []
+                        "type": "unchanged",
+                        "oldValue": "bar",
+                        "newValue": "bar",
+                        "children": null
                     },
                     {
-                        "type": "changed",
                         "key": "nest",
-                        "values": {
-                            "old": {
-                                "key": "value"
-                            },
-                            "new": "str"
+                        "type": "updated",
+                        "oldValue": {
+                            "key": "value"
                         },
-                        "children": []
+                        "newValue": "str",
+                        "children": null
                     }
                 ]
             },
             {
-                "type": "removed",
                 "key": "group2",
-                "values": {
-                    "old": {
-                        "abc": 12345,
-                        "deep": {
-                            "id": 45
-                        }
+                "type": "removed",
+                "oldValue": {
+                    "abc": 12345,
+                    "deep": {
+                        "id": 45
                     }
                 },
-                "children": []
+                "newValue": null,
+                "children": null
             },
             {
-                "type": "added",
                 "key": "group3",
-                "values": {
-                    "new": {
-                        "deep": {
-                            "id": {
-                                "number": 45
-                            }
-                        },
-                        "fee": 100500
-                    }
+                "type": "added",
+                "oldValue": null,
+                "newValue": {
+                    "deep": {
+                        "id": {
+                            "number": 45
+                        }
+                    },
+                    "fee": 100500
                 },
-                "children": []
+                "children": null
             }
         ]
         DOC;
