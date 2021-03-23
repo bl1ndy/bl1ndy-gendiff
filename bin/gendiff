@@ -6,4 +6,4 @@ require_once __DIR__ . "/../vendor/autoload.php";
 
 use function Differ\Cli\run;
 
-run();
+print_r(run() . "\n\n");

@@ -19,7 +19,7 @@ Options:
 
 DOC;
 
-function run(): void
+function run(): string
 {
     $args = \Docopt::handle(MAN, array('version' => 'Generate diff 0.1.0'));
 
@@ -27,5 +27,5 @@ function run(): void
     $secondFilePath = $args['<secondFile>'];
     $format = $args['--format'];
 
-    print_r(genDiff($firstFilePath, $secondFilePath, $format));
+    return genDiff($firstFilePath, $secondFilePath, $format);
 }
