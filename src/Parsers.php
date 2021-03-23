@@ -2,7 +2,6 @@
 
 namespace Differ\Parsers;
 
-use Exception;
 use Symfony\Component\Yaml\Yaml;
 
 function parse(string $filePath)
@@ -21,6 +20,6 @@ function parse(string $filePath)
                 Yaml::PARSE_OBJECT_FOR_MAP,
             );
         default:
-            throw new Exception("File extension '$fileExtension' is not supported");
+            throw new \Exception("File extension '$fileExtension' is not supported");
     }
 }

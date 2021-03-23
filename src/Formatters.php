@@ -2,8 +2,6 @@
 
 namespace Differ\Formatters;
 
-use Exception;
-
 use function Differ\Formatters\Stylish\stylish;
 use function Differ\Formatters\Plain\plain;
 use function Differ\Formatters\Json\json;
@@ -18,6 +16,6 @@ function format($diff, $format): string
         case 'stylish':
             return stylish($diff);
         default:
-            throw new Exception("Format '$format' is not supported");
+            throw new \Exception("Format '$format' is not supported");
     }
 }
