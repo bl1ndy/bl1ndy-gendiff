@@ -2,8 +2,6 @@
 
 namespace Differ\Formatters\Stylish;
 
-use function Functional\flatten;
-
 function getIndent($depth)
 {
     return str_repeat('    ', $depth);
