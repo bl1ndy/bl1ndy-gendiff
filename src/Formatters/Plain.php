@@ -4,7 +4,7 @@ namespace Differ\Formatters\Plain;
 
 use function Functional\flatten;
 
-function formatValue($value)
+function formatValue($value): string
 {
     $typeFormats = [
         'string' => fn($value) => "'$value'",

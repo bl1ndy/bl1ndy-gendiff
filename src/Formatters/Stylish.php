@@ -2,17 +2,17 @@
 
 namespace Differ\Formatters\Stylish;
 
-function getIndent($depth)
+function getIndent(int $depth): string
 {
     return str_repeat('    ', $depth);
 }
 
-function formatValue($value, $depth)
+function formatValue($value, int $depth): string
 {
-    $formatComplexValue = function ($value, $depth) {
+    $formatComplexValue = function ($value, $depth): string {
         $indent = getIndent($depth);
         $complexValue = array_map(
-            function ($key, $value) use ($depth, $indent) {
+            function ($key, $value) use ($depth, $indent): string {
                 return "{$indent}    {$key}: " . formatValue($value, $depth);
             },
             array_keys($value),
@@ -40,7 +40,7 @@ function stylish(array $diff, int $depth = 0): string
 {
     $indent = getIndent($depth);
     $lines = array_map(
-        function ($node) use ($indent, $depth) {
+        function ($node) use ($indent, $depth): string {
             switch ($node['type']) {
                 case 'added':
                     $formattedValue = formatValue($node['newValue'], $depth);

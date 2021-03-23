@@ -4,8 +4,12 @@ namespace Differ\Parsers;
 
 use Symfony\Component\Yaml\Yaml;
 
-function parse(string $filePath)
+function parse(string $filePath): object
 {
+    if (!$filePath) {
+        throw new \Exception("Invalid filepath '$filePath'!");
+    }
+
     $fileExtension = pathinfo($filePath, PATHINFO_EXTENSION);
 
     switch ($fileExtension) {
