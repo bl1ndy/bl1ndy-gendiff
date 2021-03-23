@@ -7,7 +7,7 @@ use Symfony\Component\Yaml\Yaml;
 function parse(string $filePath): object
 {
     $fileExtension = pathinfo($filePath, PATHINFO_EXTENSION);
-    $content = file_get_contents($filePath) ? file_get_contents($filePath) : '';
+    $content = file_get_contents($filePath) !== false ? file_get_contents($filePath) : '';
 
     switch ($fileExtension) {
         case 'json':
