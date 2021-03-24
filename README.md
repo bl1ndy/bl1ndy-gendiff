@@ -13,7 +13,7 @@ Diff can be presented in 3 formats:
 - Json
 # Installation
 ```
-git clone git@github.com:bl1ndy/bl1ndy-gendiff.git
+git clone git@github.com:bl1ndy/gendiff-php.git
 ```
 ```
 make install
